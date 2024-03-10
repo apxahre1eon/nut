@@ -80,7 +80,7 @@ Failed to create client: Daemon not running
 ```
 root@proxmox:~# echo "MODE=standalone" > /etc/nut/nut.conf
 ```
-Пробуем запускать сервер: </br>
+Пробуем запускать сервер NUT: </br>
 ```
 root@proxmox:~# systemctl start nut-server.service
 ```
