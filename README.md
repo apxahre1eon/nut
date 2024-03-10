@@ -54,10 +54,10 @@ Failed to create client: Daemon not running
         default.battery.voltage.low = 10.40
 ```
 Атрибуты: </br>
-desc - для удобства добавляем имя и\или расположение ИБП </br>
+`desc` - для удобства добавляем имя и\или расположение ИБП </br>
 Номинальное напряжение АКБ 12V: </br>
-`#90ee90` override.battery.voltage.nominal = 12.00 </br>
+`override.battery.voltage.nominal = 12.00` </br>
 Напряжение для 100% заряда: </br>
-        default.battery.voltage.high = 13.60 </br>
+`default.battery.voltage.high = 13.60` </br>
 Минимальное напряжение АКБ: </br>
-        default.battery.voltage.low = 10.40 </br>
+`default.battery.voltage.low = 10.40` </br>
