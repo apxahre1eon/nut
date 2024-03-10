@@ -3,6 +3,13 @@
 ```
 root@proxmox:~# apt update && apt install nut -y
 ```
+
+Все конфигурационные файлы находятся в директории `/etc/ups` </br>
+`ups.conf` - настройки nut для работы с UPS (драйвер/порт/наименование) </br>
+`upsd.conf` - настройка основного демона upsd Network UPS Tools </br>
+`upsd.users` - контроль доступа к UPS демону (профили пользователей) </br>
+`upsmon.conf` - настройка текущего клиентского агента </br>
+</br>
 Ищем наш ИБП:
 ```
 root@proxmox:~# lsusb
