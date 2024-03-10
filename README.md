@@ -98,8 +98,8 @@ root@proxmox:~# systemctl start nut-server.service
 ```
 root@proxmox:~# upsc ippon
 Init SSL without certificate database
-battery.charge: 97
-battery.voltage: 13.50
+battery.charge: 100
+battery.voltage: 13.60
 battery.voltage.high: 13.60
 battery.voltage.low: 10.40
 battery.voltage.nominal: 12.00
@@ -118,10 +118,10 @@ driver.version.internal: 0.12
 input.current.nominal: 2.0
 input.frequency: 50.1
 input.frequency.nominal: 50
-input.voltage: 256.8
-input.voltage.fault: 256.8
+input.voltage: 252.4
+input.voltage.fault: 252.4
 input.voltage.nominal: 220
-output.voltage: 218.7
+output.voltage: 214.9
 ups.beeper.status: enabled
 ups.delay.shutdown: 30
 ups.delay.start: 180
