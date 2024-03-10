@@ -1,11 +1,11 @@
 # nut для бюджетных Ippon
 Устанавливаем NUT:
 ```
-apt update && apt install nut -y
+root@proxmox:~# apt update && apt install nut -y
 ```
 Ищем наш UPS:
 ```
-lsusb
+root@proxmox:~# lsusb
 ```
 В ответ получаем что-то типа:
 ```
