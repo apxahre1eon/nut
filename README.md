@@ -82,9 +82,9 @@ root@proxmox:~# echo "MODE=standalone" > /etc/nut/nut.conf
 ```
 Пробуем запускать сервер: </br>
 ```
-root@proxmox:~# systemctl status nut-server.service
+root@proxmox:~# systemctl start nut-server.service
 ```
-Проверяем что данные с ИБП считываются
+Проверяем что данные с ИБП считываются:
 ```
 root@proxmox:~# upsc ippon
 Init SSL without certificate database
