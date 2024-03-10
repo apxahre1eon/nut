@@ -268,3 +268,27 @@ FINALDELAY 0
 root@proxmox:~# systemctl restart nut-server.service
 root@proxmox:~# systemctl start nut-monitor
 ```
+Для уведомлений в Telegram, редактируем файл `/etc/nut/upssched.conf`:
+```
+# Скрипт, который будет запускаться на события от ИБП
+CMDSCRIPT /etc/nut/telegram.sh
+
+# События, на которые будет запускаться скрипт
+# Каждая строка имеет вид:
+# AT событие ИБП команда
+# Звёздочка означает любой ИБП
+AT ONLINE * EXECUTE online
+AT ONBATT * EXECUTE onbatt
+AT LOWBATT * EXECUTE lowbatt
+AT REPLBATT * EXECUTE replbatt
+AT COMMOK * EXECUTE commok
+AT COMMBAD * EXECUTE commbad
+AT NOCOMM * EXECUTE nocomm
+
+# Сокет, используемый для внутренних межпроцессных коммуникаций
+PIPEFN /var/lib/nut/upssched.pipe
+
+# Файл блокировки для исключения "состояния гонки",
+# которая возможна при обработке нескольких событий одновременно
+LOCKFN /var/lib/nut/upssched.lock
+```
