@@ -240,15 +240,15 @@ POLLFREQALERT 5
 HOSTSYNC 15
 DEADTIME 15
 POWERDOWNFLAG /etc/killpower
-NOTIFYMSG ONLINE     "✅✅✅Работа ИБП от сети восстановлена."
-NOTIFYMSG ONBATT     "🟢🟢🟢 Работа ИБП от АКБ."
-NOTIFYMSG LOWBATT    "🔴🔴🔴Низкий заряд АКБ на сервере. Аварийное завершение работы!"
+NOTIFYMSG ONLINE     "UPS %s on line power"
+NOTIFYMSG ONBATT     "UPS %s on battery"
+NOTIFYMSG LOWBATT    "UPS %s battery is low"
 NOTIFYMSG FSD        "UPS %s: forced shutdown in progress"
-NOTIFYMSG COMMOK     "✅Связь с ИБП восстановлена."
-NOTIFYMSG COMMBAD    "⛔Потеряна связь с ИБП!"
+NOTIFYMSG COMMOK     "Communications with UPS %s established"
+NOTIFYMSG COMMBAD    "Communications with UPS %s lost"
 NOTIFYMSG SHUTDOWN   "Auto logout and shutdown proceeding"
-NOTIFYMSG REPLBATT   "⚠️ ⚠️ ⚠️ Требуется замена АКБ ИБП на сервере!"
-NOTIFYMSG NOCOMM     "⛔⛔⛔Нет связи с ИБП!"
+NOTIFYMSG REPLBATT   "UPS %s battery needs to be replaced"
+NOTIFYMSG NOCOMM     "UPS %s is unavailable"
 NOTIFYMSG NOPARENT   "upsmon parent process died - shutdown impossible"
 NOTIFYFLAG ONLINE    EXEC
 NOTIFYFLAG ONBATT    EXEC
