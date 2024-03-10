@@ -150,7 +150,42 @@ ups.vendorid: 0665
 `calibrate.start` - запуск калибровки батареи </br>
 `calibrate.stop` - остановка калибровки батареи </br>
 `upsmon master` - полные полномочия управления питанием подключенных к системе UPS. Отвечает за выключение разряженного аккумулятора. Выключение происходит после безопасного выключения всех slave мониторов. Если ваш ИБП подключен непосредственно к системе через последовательный порт, то для upsmon этой системы следует определить его как master. `upsmon slave` - эта система, под управлением upsmon master и она не выключается непосредственно. Операционная система будет выключена перед отключением питания master. Используйте этот режим при запуске монитора на других серверах работающих на том же ИБП. И очевидно, что только один сервер может быть подключен к последовательному порту на UPS, коим будет является master. Все остальные сервера будут slave. `upsmon monitor-only` - при этом режиме будут создаваться уведомления о состоянии или изменении работы батареи, переключении на линию и т.д., но не будет завершать работу системы. </br>
+</br>
 После добавления пользователей, перезагружаем демона:
 ```
 root@proxmox:~# systemctl restart nut-server.service
+```
+Для мониторинга в режиме standalone, редактируем файл `/etc/nut/upsmon.conf`
+```
+MONITOR ippon@localhost 1 upsmon upsmon master
+MINSUPPLIES 1
+SHUTDOWNCMD "/sbin/shutdown -h +0"
+NOTIFYCMD /usr/sbin/upssched
+POLLFREQ 5
+POLLFREQALERT 5
+HOSTSYNC 15
+DEADTIME 15
+POWERDOWNFLAG /etc/killpower
+NOTIFYMSG ONLINE     "UPS %s on line power"
+NOTIFYMSG ONBATT     "UPS %s on battery"
+NOTIFYMSG LOWBATT    "UPS %s battery is low"
+NOTIFYMSG FSD        "UPS %s: forced shutdown in progress"
+NOTIFYMSG COMMOK     "Communications with UPS %s established"
+NOTIFYMSG COMMBAD    "Communications with UPS %s lost"
+NOTIFYMSG SHUTDOWN   "Auto logout and shutdown proceeding"
+NOTIFYMSG REPLBATT   "UPS %s battery needs to be replaced"
+NOTIFYMSG NOCOMM     "UPS %s is unavailable"
+NOTIFYMSG NOPARENT   "upsmon parent process died - shutdown impossible"
+NOTIFYFLAG ONLINE    SYSLOG+EXEC
+NOTIFYFLAG ONBATT    SYSLOG+EXEC
+NOTIFYFLAG LOWBATT   SYSLOG+EXEC
+NOTIFYFLAG FSD       SYSLOG+EXEC
+NOTIFYFLAG COMMOK    SYSLOG+EXEC
+NOTIFYFLAG COMMBAD   SYSLOG+EXEC
+NOTIFYFLAG SHUTDOWN  SYSLOG+EXEC
+NOTIFYFLAG REPLBATT  SYSLOG+EXEC
+NOTIFYFLAG NOCOMM    SYSLOG+EXEC
+NOTIFYFLAG NOPARENT  SYSLOG+EXEC
+NOCOMMWARNTIME 300
+FINALDELAY 0
 ```
