@@ -61,3 +61,8 @@ Failed to create client: Daemon not running
 `default.battery.voltage.high = 13.60` </br>
 Минимальное напряжение АКБ: </br>
 `default.battery.voltage.low = 10.40` </br>
+
+Чтобы сервер работал автономно, добавим в `/etc/nut/nut.conf` "MODE=standalone" </br>
+```
+root@proxmox:~# echo "MODE=standalone" > /etc/nut/nut.conf
+```
