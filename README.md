@@ -228,3 +228,43 @@ NOTIFYFLAG может принимать несколько значений:  <
 `NOTIFYFLAG NOPARENT` - изменение поведения upsmon, </br>
 `NOCOMMWARNTIME` - Если upsmon не сможет связаться с каким либо ИБП, определенным в этом файле, он даст вам узнать об этом через уведомления системы. Он будет вызывать `NOTIFY NOCOMM` каждые 300 секунд (значение по умолчанию) </br>
 `FINALDELAY` - На master, upsmon после отправки `NOTIFY SHUTDOWN` будет ждать в течении этого интервала перед выполнением SHUTDOWNCMD. Если вам нужно что-то сделать между этими двумя событиями, увеличьте интервал. Но помните, на данном этапе ваш ИБП почти истащен,- не делайте интервал ожидания слишком большим. </br>
+</br>
+Пример конфига только для уведомлений:
+```
+MONITOR ippon@localhost 1 upsmon upsmon master
+MINSUPPLIES 1
+SHUTDOWNCMD "/sbin/shutdown -h +0"
+NOTIFYCMD /usr/sbin/upssched
+POLLFREQ 5
+POLLFREQALERT 5
+HOSTSYNC 15
+DEADTIME 15
+POWERDOWNFLAG /etc/killpower
+NOTIFYMSG ONLINE     "✅✅✅Работа ИБП от сети восстановлена."
+NOTIFYMSG ONBATT     "🟢🟢🟢 Работа ИБП от АКБ."
+NOTIFYMSG LOWBATT    "🔴🔴🔴Низкий заряд АКБ на сервере. Аварийное завершение работы!"
+NOTIFYMSG FSD        "UPS %s: forced shutdown in progress"
+NOTIFYMSG COMMOK     "✅Связь с ИБП восстановлена."
+NOTIFYMSG COMMBAD    "⛔Потеряна связь с ИБП!"
+NOTIFYMSG SHUTDOWN   "Auto logout and shutdown proceeding"
+NOTIFYMSG REPLBATT   "⚠️ ⚠️ ⚠️ Требуется замена АКБ ИБП на сервере!"
+NOTIFYMSG NOCOMM     "⛔⛔⛔Нет связи с ИБП!"
+NOTIFYMSG NOPARENT   "upsmon parent process died - shutdown impossible"
+NOTIFYFLAG ONLINE    EXEC
+NOTIFYFLAG ONBATT    EXEC
+NOTIFYFLAG LOWBATT   EXEC
+NOTIFYFLAG FSD       IGNORE
+NOTIFYFLAG COMMOK    EXEC       
+NOTIFYFLAG COMMBAD   EXEC       
+NOTIFYFLAG SHUTDOWN  IGNORE     
+NOTIFYFLAG REPLBATT  EXEC
+NOTIFYFLAG NOCOMM    EXEC
+NOTIFYFLAG NOPARENT  IGNORE     
+NOCOMMWARNTIME 300
+FINALDELAY 0
+```
+Перезапускаем демон nut и запускаем мониторинг:
+```
+root@proxmox:~# systemctl restart nut-server.service
+root@proxmox:~# systemctl start nut-monitor
+```
