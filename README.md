@@ -56,7 +56,7 @@ Failed to create client: Daemon not running
 Атрибуты: </br>
 desc - для удобства добавляем имя и\или расположение ИБП </br>
 Номинальное напряжение АКБ 12V: </br>
-        override.battery.voltage.nominal = 12.00 </br>
+`#90ee90` override.battery.voltage.nominal = 12.00 </br>
 Напряжение для 100% заряда: </br>
         default.battery.voltage.high = 13.60 </br>
 Минимальное напряжение АКБ: </br>
