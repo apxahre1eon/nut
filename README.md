@@ -76,11 +76,15 @@ Failed to create client: Daemon not running
 `default.battery.voltage.high = 13.80` напряжение для 100% заряда </br>
 `default.battery.voltage.low = 10.20` минимальное напряжение АКБ </br>
 
-Если у Вас одна батарея с номиналом 12V, то от сюда получаем, что override.battery.voltage.nominal = 12.00
-12V x 0.15 = 1.8V
-12V + 1.8V = 13.8V от сюда получаем, что default.battery.voltage.high = 13.80
-12V - 1.8V = 10.20V от сюда получаем, что default.battery.voltage.low = 10.20
+Если у Вас одна батарея с номиналом 12V, то от сюда получаем, что `override.battery.voltage.nominal = 12.00` </br>
+12V x 0.15 = 1.8V </br>
+12V + 1.8V = 13.8V от сюда получаем, что `default.battery.voltage.high = 13.80` </br>
+12V - 1.8V = 10.20V от сюда получаем, что `default.battery.voltage.low = 10.20` </br>
 </br>
+Для 24V: </br>
+24V x 0.15 = 3.6V </br>
+24V + 3.6V = 27.6V от сюда получаем, что `default.battery.voltage.high = 27.60` </br>
+24V - 3.6V = 20.4V от сюда получаем, что `default.battery.voltage.low = 20.40` </br>
 
 Чтобы сервер работал автономно, добавим в `/etc/nut/nut.conf` "MODE=standalone" </br>
 ```
