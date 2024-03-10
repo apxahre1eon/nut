@@ -17,8 +17,8 @@ Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 002: ID 0665:5161 Cypress Semiconductor USB to Serial
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
-В данном случае, наш UPS:
-Bus 003 Device 002: ID 0665:5161 Cypress Semiconductor USB to Serial
+В данном случае, наш UPS: </br>
+Bus 003 Device 002: ID 0665:5161 Cypress Semiconductor USB to Serial </br>
 
 Для поиска подходящего драйвера можно использовать авто сканнер nut-scanner
 ```
@@ -55,8 +55,8 @@ Failed to create client: Daemon not running
 ```
 Атрибут: desc - для удобства добавляем имя и\или расположение ИБП
 Номинальное напряжение АКБ 12V </br>
-        override.battery.voltage.nominal = 12.00
+        override.battery.voltage.nominal = 12.00 </br>
 Напряжение для 100% заряда </br>
-        default.battery.voltage.high = 13.60
+        default.battery.voltage.high = 13.60 </br>
 Минимальное напряжение АКБ </br>
-        default.battery.voltage.low = 10.40
+        default.battery.voltage.low = 10.40 </br>
