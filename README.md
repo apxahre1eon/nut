@@ -18,7 +18,7 @@ Bus 003 Device 002: ID 0665:5161 Cypress Semiconductor USB to Serial
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 В данном случае, наш UPS: </br>
-Bus 003 Device 002: ID 0665:5161 Cypress Semiconductor USB to Serial </br>
+`Bus 003 Device 002: ID 0665:5161 Cypress Semiconductor USB to Serial` </br>
 
 Для поиска подходящего драйвера можно использовать авто сканнер nut-scanner
 ```
@@ -37,7 +37,7 @@ Failed to create client: Daemon not running
 	vendor = "INNO TECH"
 	bus = "003"
 ```
-В данном случае верно определивший наш UPS и сразу подобравший для него драйвер. Берём блок [nutdev1] и добавляем его в /etc/nut/ups.conf
+В данном случае верно определивший наш UPS и сразу подобравший для него драйвер. Берём блок [nutdev1] и добавляем его в `/etc/nut/ups.conf`
 ```
 [ippon]
         driver = "nutdrv_qx"
