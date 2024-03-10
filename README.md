@@ -56,21 +56,18 @@ Failed to create client: Daemon not running
 Атрибуты: </br>
 `[ippon]` Имя ИБП для NUT, с помощью которого и будем производить все манипуляции с ИБП </br>
 `driver` Драйвер ИБП </br>
-`port` порт, на котором висит UPS (для подключения через USB указываете значение "auto". Для snmp-ups: имя хоста SNMP агента. Для newhidups: значение "auto" для автоматического соединения с USB UPS </br>
+`port` Порт, на котором висит UPS (для подключения через USB указываете значение "auto". Для snmp-ups: имя хоста SNMP агента. Для newhidups: значение "auto" для автоматического соединения с USB UPS </br>
 Идентификатор устройства </br>
 `vendorid` </br>
 `productid` </br>
 `product` Тип устройства. В данном случаем внутри ИБП уже установлен конвертор USB to Serial </br>
 `serial` Серийный номер </br>
 `vendor` Бренд изготовителя устройства </br>
-`bus` канал/шина на котором расположен порт </br>
-`desc` - для удобства добавляем имя и\или расположение ИБП </br>
-Номинальное напряжение АКБ 12V: </br>
-`override.battery.voltage.nominal = 12.00` </br>
-Напряжение для 100% заряда: </br>
-`default.battery.voltage.high = 13.60` </br>
-Минимальное напряжение АКБ: </br>
-`default.battery.voltage.low = 10.40` </br>
+`bus` Канал/шина на котором расположен порт </br>
+`desc` Для удобства добавляем имя и\или расположение ИБП </br>
+`override.battery.voltage.nominal = 12.00` Номинальное напряжение АКБ 12V: </br>
+`default.battery.voltage.high = 13.60` Напряжение для 100% заряда: </br>
+`default.battery.voltage.low = 10.40` Минимальное напряжение АКБ: </br>
 
 Чтобы сервер работал автономно, добавим в `/etc/nut/nut.conf` "MODE=standalone" </br>
 ```
