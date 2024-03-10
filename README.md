@@ -80,3 +80,45 @@ Failed to create client: Daemon not running
 ```
 root@proxmox:~# echo "MODE=standalone" > /etc/nut/nut.conf
 ```
+Пробуем запускать сервер: </br>
+```
+root@proxmox:~# systemctl status nut-server.service
+```
+Проверяем что данные с ИБП считываются
+```
+root@proxmox:~# upsc ippon
+Init SSL without certificate database
+battery.charge: 97
+battery.voltage: 13.50
+battery.voltage.high: 13.60
+battery.voltage.low: 10.40
+battery.voltage.nominal: 12.00
+device.type: ups
+driver.name: blazer_usb
+driver.parameter.bus: 002
+driver.parameter.pollinterval: 2
+driver.parameter.port: auto
+driver.parameter.product: USB to Serial
+driver.parameter.productid: 5161
+driver.parameter.synchronous: no
+driver.parameter.vendor: Cypress Semiconductor
+driver.parameter.vendorid: 0665
+driver.version: 2.7.4
+driver.version.internal: 0.12
+input.current.nominal: 2.0
+input.frequency: 50.1
+input.frequency.nominal: 50
+input.voltage: 256.8
+input.voltage.fault: 256.8
+input.voltage.nominal: 220
+output.voltage: 218.7
+ups.beeper.status: enabled
+ups.delay.shutdown: 30
+ups.delay.start: 180
+ups.load: 0
+ups.productid: 5161
+ups.status: OL TRIM
+ups.temperature: 25.0
+ups.type: offline / line interactive
+ups.vendorid: 0665
+```
