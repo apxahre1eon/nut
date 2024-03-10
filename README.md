@@ -1,13 +1,13 @@
-# nut
-Устанавливаем NUT
+# nut для бюджетных Ippon
+Устанавливаем NUT:
 ```
 apt update && apt install nut -y
 ```
-Ищем наш UPS
+Ищем наш UPS:
 ```
 lsusb
 ```
-В ответ получаем что-то типа
+В ответ получаем что-то типа:
 ```
 Bus 002 Device 002: ID 8087:8002 Intel Corp. 8 channel internal hub
 Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -19,3 +19,44 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 В данном случае, наш UPS:
 Bus 003 Device 002: ID 0665:5161 Cypress Semiconductor USB to Serial
+
+Для поиска подходящего драйвера можно использовать авто сканнер nut-scanner
+```
+root@proxmox:~# nut-scanner 
+Scanning USB bus.
+No start IP, skipping NUT bus (old connect method)
+Scanning NUT bus (avahi method).
+Failed to create client: Daemon not running
+[nutdev1]
+	driver = "nutdrv_qx"
+	port = "auto"
+	vendorid = "0665"
+	productid = "5161"
+	product = "USB to Serial"
+	serial = "20100826"
+	vendor = "INNO TECH"
+	bus = "003"
+```
+В данном случае верно определивший наш UPS и сразу подобравший для него драйвер. Берём блок [nutdev1] и добавляем его в /etc/nut/ups.conf
+```
+[ippon]
+        driver = "nutdrv_qx"
+        port = "auto"
+        vendorid = "0665"
+        productid = "5161"
+        product = "USB to Serial"
+        serial = "20100826"
+        vendor = "INNO TECH"
+        bus = "003"
+        desc = "Ippon Back Basic 650S Euro"
+        override.battery.voltage.nominal = 12.00
+        default.battery.voltage.high = 13.60
+        default.battery.voltage.low = 10.40
+```
+Атрибут: desc - для удобства добавляем имя и\или расположение ИБП
+Номинальное напряжение АКБ 12V
+        override.battery.voltage.nominal = 12.00
+Напряжение для 100% заряда
+        default.battery.voltage.high = 13.60
+Минимальное напряжение АКБ
+        default.battery.voltage.low = 10.40
