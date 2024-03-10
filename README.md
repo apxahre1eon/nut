@@ -211,7 +211,7 @@ FINALDELAY 0
 `NOTIFYMSG NOPARENT`   "upsmon parent process died - shutdown impossible" </br>
 </br>
 NOTIFYFLAG может принимать несколько значений:  </br>
---`SYSLOG` - Записать сообщение в syslog  </br>
+--`SYSLOG` - записать сообщение в syslog  </br>
 --`WALL` - писать сообщение всем пользователям в системе </br>
 --`EXEC` - выполнить NOTIFYCMD (см. выше) с сообщением </br>
 --`IGNORE` - ничего не делать </br>
