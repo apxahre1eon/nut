@@ -1,4 +1,4 @@
-# nut для бюджетных Ippon с уведомлениями в Telegram
+# nut standalone для бюджетных Ippon 
 Устанавливаем nut:
 ```
 root@proxmox:~# apt update && apt install nut -y
