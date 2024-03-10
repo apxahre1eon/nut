@@ -73,8 +73,14 @@ Failed to create client: Daemon not running
 `bus` канал/шина на котором расположен порт </br>
 `desc` для удобства добавляем имя и\или расположение ИБП. Можно указывать кириллицей </br>
 `override.battery.voltage.nominal = 12.00` номинальное напряжение АКБ 12V </br>
-`default.battery.voltage.high = 13.60` напряжение для 100% заряда </br>
-`default.battery.voltage.low = 10.40` минимальное напряжение АКБ </br>
+`default.battery.voltage.high = 13.80` напряжение для 100% заряда </br>
+`default.battery.voltage.low = 10.20` минимальное напряжение АКБ </br>
+
+Если у Вас одна батарея с номиналом 12V, то от сюда получаем, что override.battery.voltage.nominal = 12.00
+12V x 0.15 = 1.8V
+12V + 1.8V = 13.8V от сюда получаем, что default.battery.voltage.high = 13.80
+12V - 1.8V = 10.20V от сюда получаем, что default.battery.voltage.low = 10.20
+</br>
 
 Чтобы сервер работал автономно, добавим в `/etc/nut/nut.conf` "MODE=standalone" </br>
 ```
