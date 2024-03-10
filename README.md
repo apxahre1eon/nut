@@ -1,5 +1,5 @@
 # nut для бюджетных Ippon
-Устанавливаем ИБП:
+Устанавливаем nut:
 ```
 root@proxmox:~# apt update && apt install nut -y
 ```
@@ -61,27 +61,27 @@ Failed to create client: Daemon not running
         default.battery.voltage.low = 10.40
 ```
 Атрибуты: </br>
-`[ippon]` имя ИБП для NUT латиницей, с помощью которого и будем производить все манипуляции с ИБП </br>
-`driver` драйвер ИБП </br>
-`port` порт, на котором висит ИБП (для подключения через USB указываете значение "auto". Для snmp-ups: имя хоста SNMP агента. Для newhidups: значение "auto" для автоматического соединения с USB UPS </br>
+`[ippon]` - имя ИБП для NUT латиницей, с помощью которого и будем производить все манипуляции с ИБП </br>
+`driver` - драйвер ИБП </br>
+`port` - порт, на котором висит ИБП (для подключения через USB указываете значение "auto". Для snmp-ups: имя хоста SNMP агента. Для newhidups: значение "auto" для автоматического соединения с USB UPS </br>
 Идентификаторы устройства: </br>
 `vendorid` </br>
 `productid` </br>
-`product` тип устройства. В данном случаем внутри ИБП уже установлен конвертор USB to Serial </br>
-`serial` серийный номер </br>
-`vendor` бренд изготовителя устройства </br>
-`bus` канал/шина на котором расположен порт </br>
-`desc` для удобства добавляем имя и\или расположение ИБП. Можно указывать кириллицей </br>
-`override.battery.voltage.nominal = 12.00` номинальное напряжение АКБ 12V </br>
-`default.battery.voltage.high = 13.80` напряжение для 100% заряда </br>
-`default.battery.voltage.low = 10.20` минимальное напряжение АКБ </br>
+`product` - тип устройства. В данном случаем внутри ИБП уже установлен конвертор USB to Serial </br>
+`serial` - серийный номер </br>
+`vendor` - бренд изготовителя устройства </br>
+`bus` - канал/шина на котором расположен порт </br>
+`desc` - для удобства добавляем имя и\или расположение ИБП. Можно указывать кириллицей </br>
+`override.battery.voltage.nominal = 12.00` - номинальное напряжение АКБ 12V </br>
+`default.battery.voltage.high = 13.80` - напряжение для 100% заряда </br>
+`default.battery.voltage.low = 10.20` - минимальное напряжение АКБ </br>
 
-Для 12V: `override.battery.voltage.nominal = 12.00` </br>
+Для 12V - `override.battery.voltage.nominal = 12.00` </br>
 12V x 0.15 = 1.8V </br>
 12V + 1.8V = 13.8V `default.battery.voltage.high = 13.80` </br>
 12V - 1.8V = 10.20V `default.battery.voltage.low = 10.20` </br>
 </br>
-Для 24V: `override.battery.voltage.nominal = 24.00` </br>
+Для 24V - `override.battery.voltage.nominal = 24.00` </br>
 24V x 0.15 = 3.6V </br>
 24V + 3.6V = 27.6V `default.battery.voltage.high = 27.60` </br>
 24V - 3.6V = 20.4V `default.battery.voltage.low = 20.40` </br>
