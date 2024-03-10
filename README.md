@@ -102,30 +102,31 @@ battery.voltage.high: 13.60
 battery.voltage.low: 10.40
 battery.voltage.nominal: 12.00
 device.type: ups
-driver.name: blazer_usb
-driver.parameter.bus: 002
+driver.name: nutdrv_qx
+driver.parameter.bus: 003
+driver.parameter.pollfreq: 30
 driver.parameter.pollinterval: 2
 driver.parameter.port: auto
 driver.parameter.product: USB to Serial
 driver.parameter.productid: 5161
-driver.parameter.synchronous: no
-driver.parameter.vendor: Cypress Semiconductor
+driver.parameter.serial: 20100826
+driver.parameter.synchronous: auto
+driver.parameter.vendor: INNO TECH
 driver.parameter.vendorid: 0665
-driver.version: 2.7.4
-driver.version.internal: 0.12
-input.current.nominal: 2.0
+driver.version: 2.8.0
+driver.version.data: Q1 0.07
+driver.version.internal: 0.32
+driver.version.usb: libusb-1.0.26 (API: 0x1000109)
 input.frequency: 50.1
-input.frequency.nominal: 50
-input.voltage: 252.4
-input.voltage.fault: 252.4
-input.voltage.nominal: 220
-output.voltage: 214.9
+input.voltage: 228.0
+input.voltage.fault: 227.4
+output.voltage: 228.0
 ups.beeper.status: enabled
 ups.delay.shutdown: 30
 ups.delay.start: 180
-ups.load: 0
+ups.load: 28
 ups.productid: 5161
-ups.status: OL TRIM
+ups.status: OL
 ups.temperature: 25.0
 ups.type: offline / line interactive
 ups.vendorid: 0665
