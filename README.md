@@ -191,6 +191,7 @@ NOTIFYFLAG SHUTDOWN  SYSLOG+EXEC
 NOTIFYFLAG REPLBATT  SYSLOG+EXEC
 NOTIFYFLAG NOCOMM    SYSLOG+EXEC
 NOTIFYFLAG NOPARENT  SYSLOG+EXEC
+RBWARNTIME 43200
 NOCOMMWARNTIME 300
 FINALDELAY 0
 ```
@@ -231,6 +232,7 @@ NOTIFYFLAG может принимать несколько значений:  <
 `NOTIFYFLAG REPLBATT` - изменение поведения upsmon, замена АКБ </br>
 `NOTIFYFLAG NOCOMM` - изменение поведения upsmon, нет связи с ИБП </br>
 `NOTIFYFLAG NOPARENT` - изменение поведения upsmon, </br>
+`RBWARNTIME` - интервал повторения уведомления о необходимости замены АКБ в ИБП </br>
 `NOCOMMWARNTIME` - Если upsmon не сможет связаться с каким либо ИБП, определенным в этом файле, он даст вам узнать об этом через уведомления системы. Он будет вызывать `NOTIFY NOCOMM` каждые 300 секунд (значение по умолчанию) </br>
 `FINALDELAY` - На master, upsmon после отправки `NOTIFY SHUTDOWN` будет ждать в течении этого интервала перед выполнением SHUTDOWNCMD. Если вам нужно что-то сделать между этими двумя событиями, увеличьте интервал. Но помните, на данном этапе ваш ИБП почти истащен,- не делайте интервал ожидания слишком большим. </br>
 </br>
@@ -264,7 +266,8 @@ NOTIFYFLAG COMMBAD   EXEC
 NOTIFYFLAG SHUTDOWN  IGNORE     
 NOTIFYFLAG REPLBATT  EXEC
 NOTIFYFLAG NOCOMM    EXEC
-NOTIFYFLAG NOPARENT  IGNORE     
+NOTIFYFLAG NOPARENT  IGNORE
+RBWARNTIME 43200  
 NOCOMMWARNTIME 300
 FINALDELAY 0
 ```
