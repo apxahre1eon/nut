@@ -131,6 +131,11 @@ ups.temperature: 25.0
 ups.type: offline / line interactive
 ups.vendorid: 0665
 ```
+Создаём пользователя:
+```
+root@proxmox:~# useradd upsmon
+root@proxmox:~# passwd upsmon
+```
 Добавляем пользователя для upsd в файле `/etc/nut/upsd.users`:
 ```
 [upsmon]
